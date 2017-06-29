@@ -1,0 +1,18 @@
+{
+  "description": "Handles themes to change editor styles",
+  "name": "ep_teksto_themes",
+  "version": "0.0.1",
+  "author": {
+    "name": "Luiza Pagliari",
+    "email": "lpagliari@gmail.com"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "homepage": "https://github.com/storytouch/ep_teksto_themes",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/storytouch/ep_teksto_themes.git"
+  }
+}

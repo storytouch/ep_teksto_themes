@@ -1,0 +1,11 @@
+{
+  "parts": [
+    {
+      "name": "teksto_themes",
+      "client_hooks": {
+        "postAceInit": "ep_teksto_themes/static/js/index",
+        "aceEditorCSS": "ep_teksto_themes/static/js/index"
+      }
+    }
+  ]
+}
