@@ -28,7 +28,7 @@ var clearTheme = function() {
 exports.listenToChangesOnTheme = function() {
   window.addEventListener('message', function(e) {
     if (e.data && e.data.type === MESSAGE_TYPE) {
-      activateTheme(e.data.theme);
+      exports.activateTheme(e.data.theme);
     }
   });
 }
