@@ -6,11 +6,11 @@ exports.activateTheme = function(theme) {
   clearTheme();
 
   var themeName = 'theme-' + theme;
-  getThemeClassesTarget().addClass(themeName);
+  getThemeClassesTargets().addClass(themeName);
 }
 
 var clearTheme = function() {
-  var $body = getThemeClassesTarget();
+  var $body = getThemeClassesTargets();
   var originalClasses = $body.attr('class');
 
   var theme = /(?:^| )(theme-[_a-z]*)/.exec(originalClasses);
@@ -33,9 +33,11 @@ exports.listenToChangesOnTheme = function() {
   });
 }
 
-exports.getThemeClassesTarget = function() {
+exports.getThemeClassesTargets = function() {
   var $padOuter = $('iframe[name="ace_outer"]').contents();
   var $padInner = $padOuter.find('iframe[name="ace_inner"]').contents();
-  return $padInner.find('#innerdocbody');
+
+  // get body on all frames, so theme can be configured on all levels
+  return $padInner.add($padOuter).add(document).find('body');
 }
-var getThemeClassesTarget = exports.getThemeClassesTarget;
+var getThemeClassesTargets = exports.getThemeClassesTargets;
