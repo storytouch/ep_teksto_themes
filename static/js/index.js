@@ -13,10 +13,9 @@ exports.aceEditorCSS = function() {
 }
 
 exports.postAceInit = function(hook, context) {
-  var themeName = getParam(URL_PARAM);
-  if (themeName) {
-    theme.activateTheme(themeName);
-  }
+  // default theme to light
+  var themeName = getParam(URL_PARAM) || 'light';
+  theme.activateTheme(themeName);
 
   // keep listening for future changes on theme
   theme.listenToChangesOnTheme();
@@ -43,7 +42,7 @@ var getParam = function(paramName) {
 
 var copyReadOnlyClassFromPadChromeToPadInner = function() {
   if (padIsReadOnly()) {
-    theme.getThemeClassesTarget().addClass(READ_ONLY_CLASS);
+    theme.getThemeClassesTargets().addClass(READ_ONLY_CLASS);
   }
 }
 
