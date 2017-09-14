@@ -1,5 +1,5 @@
 .theme-light {
-  background-color: #FFFFFF !important;
+  background-color: #FFFFFF !important; /* COLOR_255 */
 }
 .readonly.theme-light {
   background-color: #EAEBED !important; /* COLOR_235 */
