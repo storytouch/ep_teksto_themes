@@ -1,6 +1,7 @@
 var $ = require('ep_etherpad-lite/static/js/rjquery').$;
 
 var theme = require('./theme');
+var utils = require('./utils');
 
 var URL_PARAM = 'theme';
 var READ_ONLY_CLASS = 'readonly';
@@ -14,7 +15,7 @@ exports.aceEditorCSS = function() {
 
 exports.postAceInit = function(hook, context) {
   // default theme to light
-  var themeName = getParam(URL_PARAM) || 'light';
+  var themeName = utils.getParam(URL_PARAM) || 'light';
   theme.activateTheme(themeName);
 
   // keep listening for future changes on theme
@@ -24,20 +25,6 @@ exports.postAceInit = function(hook, context) {
   // Need to copy class from padCrome to padInner in order to enable CSS
   // to differentiate them
   copyReadOnlyClassFromPadChromeToPadInner();
-}
-
-var getParam = function(paramName) {
-  var params = location.search.substr(location.search.indexOf('?') + 1);
-  var paramValue = '';
-  params = params.split('&');
-  // split param and value into individual pieces
-  for (var i = 0; i < params.length; i++) {
-    temp = params[i].split('=');
-    if ([temp[0]] == paramName ) {
-      paramValue = temp[1];
-    }
-  }
-  return paramValue;
 }
 
 var copyReadOnlyClassFromPadChromeToPadInner = function() {
