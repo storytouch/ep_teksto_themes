@@ -6,13 +6,6 @@ var utils = require('./utils');
 var URL_PARAM = 'theme';
 var READ_ONLY_CLASS = 'readonly';
 
-exports.aceEditorCSS = function() {
-  return [
-    'ep_teksto_themes/static/css/theme-dark.css',
-    'ep_teksto_themes/static/css/theme-light.css'
-  ];
-}
-
 exports.postAceInit = function(hook, context) {
   // default theme to light
   var themeName = utils.getParam(URL_PARAM) || 'light';
